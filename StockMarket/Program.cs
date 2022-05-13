@@ -11,7 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
-builder.Services.AddScoped<IStocksRepository, StocksRepository>();
+builder.Services.AddScoped<IStockHistoryRepository, StockHistoryRepository>();
 // builder.Services.AddOptions<YahooFinanceApiOptions>();
 builder.Services.AddSingleton<ILogger>(logger => logger.GetRequiredService<ILoggerFactory>()
                          .CreateLogger("StockMarket"));

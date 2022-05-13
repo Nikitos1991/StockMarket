@@ -8,18 +8,19 @@ namespace StockMarket.Controllers
     public class StocksController : ControllerBase
     {
         private readonly ILogger _logger;
-        private readonly IStocksRepository _stockRepository;
+        private readonly IStockHistoryRepository _stockRepository;
 
-        public StocksController(ILogger logger, IStocksRepository stockRepository)
+        public StocksController(ILogger logger, IStockHistoryRepository stockRepository)
         {
             _logger = logger;
             _stockRepository = stockRepository;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAsync(string id)
+        public async Task<IActionResult> GetAsync(string symbol)
         {
-            await _stockRepository.GetAsync(id);
+            var stockHistory = await _stockRepository.GetBySymbolAsync(symbol);
+            var performanceReport = stockHistory.GeneratePerformanceReport();
             return new OkResult();
         }
     }

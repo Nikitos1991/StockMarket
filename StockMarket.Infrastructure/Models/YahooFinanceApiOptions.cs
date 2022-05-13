@@ -2,7 +2,7 @@
 {
     public class YahooFinanceApiOptions
     {
-        public string Host { get; set; }
-        public string ApiKey { get; set; }
+        public string YahooFinanceHost { get; set; }
+        public string YahooFinanceApiKey { get; set; }
     }
 }

@@ -4,11 +4,14 @@ namespace StockMarket
 {
     public class StockHistory
     {
-        public string Symbol { get; set; }
-        public IEnumerable<StockPrice> Prices { get; set; }
+        public string? Symbol { get; set; }
+        public IEnumerable<StockPrice>? Prices { get; set; }
 
         public IEnumerable<StockPerformance> GenerateWeeklyPerformanceReport()
         {
+            if (Prices == null)
+                return Enumerable.Empty<StockPerformance>();
+
             var lastWeekPrices = Prices.OrderBy(x => x.Date).TakeLast(7);
             var firstDay = lastWeekPrices.First();
             return lastWeekPrices.Select(p => new StockPerformance

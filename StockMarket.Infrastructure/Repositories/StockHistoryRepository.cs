@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
 using StockMarket.Domain.Interfaces;
 using StockMarket.Domain.Models;
 using StockMarket.Infrastructure.Models;
+using System.Net.Http.Json;
 
 namespace StockMarket.Infrastructure.Repositories
 {
@@ -20,23 +20,19 @@ namespace StockMarket.Infrastructure.Repositories
         {
             try
             {
-                var request = new HttpRequestMessage
-                {
-                    Method = HttpMethod.Get,
-                    RequestUri = new Uri($"https://yh-finance.p.rapidapi.com/stock/v3/get-historical-data?symbol={symbol}"),
-                    Headers = {
-                                { "X-RapidAPI-Host", "yh-finance.p.rapidapi.com" },
-                                { "X-RapidAPI-Key", "c76a3ad4cbmsh630765fb542e234p197221jsn734d371cd62c" },
-                              },
-                };
-                var response = await _httpClient.SendAsync(request);
-                response.EnsureSuccessStatusCode();
-                var historyResponse = JsonConvert.DeserializeObject<StocksHistoryResponse>(await response.Content.ReadAsStringAsync());
-
+                _httpClient.DefaultRequestHeaders.Clear();
+                _httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Host", _options.YahooFinanceHost);
+                _httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Key", _options.YahooFinanceApiKey);
+                var stockHistoryUrl = new Uri($"https://{_options.YahooFinanceHost}/stock/v3/get-historical-data?symbol={symbol}");
+                var historyResponse = await _httpClient.GetFromJsonAsync<StocksHistoryResponse>(stockHistoryUrl);
                 return new StockHistory
                 {
                     Symbol = symbol,
-                    Prices = historyResponse.Prices.Select(p => new StockPrice { Price = p.Close, Date = p.Date })
+                    Prices = historyResponse?.Prices?.Select(p => new StockPrice
+                    {
+                        Price = p.Close,
+                        Date = p.Date
+                    })
                 };
             }
             catch (Exception ex)

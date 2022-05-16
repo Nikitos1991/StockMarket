@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockMarket.API", "StockMarket\StockMarket.API.csproj", "{21A2C5C4-997C-4E51-8C5F-CDFC72305408}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockMarket.Domain", "StockMarket.Domain\StockMarket.Domain.csproj", "{0A8F7FD0-B043-4DDE-8D10-33ED8A26F57D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockMarket.Domain", "StockMarket.Domain\StockMarket.Domain.csproj", "{0A8F7FD0-B043-4DDE-8D10-33ED8A26F57D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockMarket.Infrastructure", "StockMarket.Infrastructure\StockMarket.Infrastructure.csproj", "{1478A955-F18E-4CF9-91D1-3CACAE34A728}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockMarket.Infrastructure", "StockMarket.Infrastructure\StockMarket.Infrastructure.csproj", "{1478A955-F18E-4CF9-91D1-3CACAE34A728}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockMarket.Api", "StockMarket.Api\StockMarket.Api.csproj", "{07CB1BA2-329D-41CF-B277-EBE47C4B2996}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{21A2C5C4-997C-4E51-8C5F-CDFC72305408}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{21A2C5C4-997C-4E51-8C5F-CDFC72305408}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{21A2C5C4-997C-4E51-8C5F-CDFC72305408}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{21A2C5C4-997C-4E51-8C5F-CDFC72305408}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0A8F7FD0-B043-4DDE-8D10-33ED8A26F57D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0A8F7FD0-B043-4DDE-8D10-33ED8A26F57D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A8F7FD0-B043-4DDE-8D10-33ED8A26F57D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{1478A955-F18E-4CF9-91D1-3CACAE34A728}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1478A955-F18E-4CF9-91D1-3CACAE34A728}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1478A955-F18E-4CF9-91D1-3CACAE34A728}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07CB1BA2-329D-41CF-B277-EBE47C4B2996}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07CB1BA2-329D-41CF-B277-EBE47C4B2996}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07CB1BA2-329D-41CF-B277-EBE47C4B2996}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07CB1BA2-329D-41CF-B277-EBE47C4B2996}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

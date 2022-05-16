@@ -1,4 +1,7 @@
+using StockMarket.API.Mappers;
 using StockMarket.Domain.Interfaces;
+using StockMarket.Domain.Services;
+using StockMarket.Domain.Services.Interfaces;
 using StockMarket.Infrastructure.Models;
 using StockMarket.Infrastructure.Repositories;
 
@@ -11,8 +14,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
-builder.Services.AddScoped<IStockHistoryRepository, StockHistoryRepository>();
-builder.Services.Configure<YahooFinanceApiOptions>(builder.Configuration);
+builder.Services.AddScoped<IStocksRepository, StocksRepository>();
+builder.Services.AddScoped<IStockReportsMapper, StockReportsMapper>();
+builder.Services.AddScoped<IStockReportService, StockReportService>();
+builder.Services.AddMemoryCache();
+builder.Services.Configure<StockMarketApiOptions>(builder.Configuration);
 builder.Services.AddSingleton<ILogger>(logger => logger.GetRequiredService<ILoggerFactory>()
                          .CreateLogger("StockMarket"));
 

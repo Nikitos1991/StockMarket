@@ -2,7 +2,7 @@
 {
     public class StocksHistoryResponse
     {
-        public IEnumerable<StockPriceResponse> Prices { get; set; }
+        public IEnumerable<StockPriceResponse>? Prices { get; set; }
     }
 
     public class StockPriceResponse

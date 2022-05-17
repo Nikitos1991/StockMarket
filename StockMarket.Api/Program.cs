@@ -22,14 +22,23 @@ builder.Services.Configure<StockMarketApiOptions>(builder.Configuration);
 builder.Services.AddSingleton<ILogger>(logger => logger.GetRequiredService<ILoggerFactory>()
                          .CreateLogger("StockMarket"));
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+// To be accessible on all environments if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(builder =>
+{
+    builder
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader();
+});
 
 app.UseHttpsRedirection();
 

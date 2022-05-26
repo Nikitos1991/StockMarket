@@ -1,6 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
-import WeeklyPerformanceReport from './Component/WeeklyPerformanceReport'
+import WeeklyPerformanceReport from './components/WeeklyPerformanceReport'
 
 function App() {
   return (

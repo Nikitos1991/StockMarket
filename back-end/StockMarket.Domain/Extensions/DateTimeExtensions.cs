@@ -4,7 +4,7 @@
     {
         public static DateTime ToUnixTimestamp(this long timestamp)
         {
-            return (new DateTime(1970, 1, 1)).AddSeconds(timestamp).ToUniversalTime();
+            return (new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).AddSeconds(timestamp).ToUniversalTime();
         }
     }
 }
